@@ -14,8 +14,8 @@ y = loan_data["loan_status"]
 try:
     for scaled_data, scale in Preprocess.scale(X):
         for pca, n in Preprocess.pri_comp_an(scaled_data):
-            for model, classifier in Shoot.classify(pca, y):
-                DopeSheet.append_dope_sheet(model, classifier, scale, n)
+            for model, model_type in Shoot.classify(pca, y):
+                DopeSheet.append_dope_sheet(model, model_type, scale, n)
 except BaseException as e:
     print(e)
 finally:

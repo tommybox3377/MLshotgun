@@ -7,11 +7,11 @@ f = open(catalog, "a")
 f.close()
 
 
-def append_dope_sheet(model, classifier, scale, pca_n):
+def append_dope_sheet(model, model_type, scale, pca_n):
     model_info = pandas.DataFrame(model.cv_results_).sort_values("rank_test_score")
     catalog_data = pandas.DataFrame(
         {
-            "model": classifier,
+            "model": model_type,
             "scale": scale,
             "pca_n": pca_n,
             "best_score": [model_info.iloc[0]["mean_test_score"]],
